@@ -1,4 +1,4 @@
-var intToRoman = function(num, str="") {
+var intToRoman = function(num,) {
     var lookup = {
         M: 1000,
         CM: 900,
@@ -14,12 +14,12 @@ var intToRoman = function(num, str="") {
         IV: 4,
         I: 1
   };
-
-  for(key in lookup) { 
+  let roman = "";
+  for (key in lookup) {
     if(num >= lookup[key]) { 
-        str = str + key;
-        return intToRoman(num-lookup[key],str);
+      roman = roman + key;
+      return intToRoman(num-lookup[key], roman);
     }
   }
-  return str;
+  //14
 }
