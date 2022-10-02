@@ -18,3 +18,26 @@ var lengthOfLongestSubstring = function(s) {
   }
   return max;
 };
+
+//option 2
+var lengthOfLongestSubstring = function(s) {
+  if(!s) return 0;
+  const lettersArr = s.split("");
+  let resultsArr = [];
+  let lengthArr = [];
+  let i = 0;
+  for(i; i<lettersArr.length; i++ ){ 
+      const letter = lettersArr[i];
+      if(resultsArr.indexOf(letter) === -1) { 
+          resultsArr.push(letter);
+      }
+      else if(resultsArr.indexOf(letter) > -1 && i !== lettersArr.length -1) { 
+          resultsArr.splice(0,resultsArr.indexOf(letter)+1);
+          resultsArr.push(letter);
+      }
+      lengthArr.push(resultsArr.length);
+      
+  }
+  return Math.max.apply(Math, lengthArr);
+
+};
