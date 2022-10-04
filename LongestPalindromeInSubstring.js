@@ -20,3 +20,28 @@
 };
 
 //does not pass all test cases
+
+//working 
+var longestPalindromeInSubstring = function(s) {
+  const str = s;
+  if (str.length < 2) return str;
+  let palindrome = '';
+
+  function strReverse (start, length) {
+    const reversed = str.substr(start, length).split('').reverse().join('');
+    return reversed;
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    for (let j = 1; j <= str.length - i; j++) {
+      if (str.substr(i, j) === strReverse(i, j)) {
+        if (j > palindrome.length) {
+          palindrome = str.substr(i,j);
+        }
+      }
+    }
+  }
+
+  if (!palindrome) return null;
+  return palindrome;
+}
